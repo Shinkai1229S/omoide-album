@@ -475,9 +475,13 @@ p {
 
 <script>
 
+/* URLからID取得 */
+
+const id = window.location.pathname.split("/").pop();
+
 /* JSON読み込み */
 
-fetch('data/a8k2p.json')
+fetch(`/data/${id}.json`)
 
 .then(res => res.json())
 
@@ -536,6 +540,24 @@ fetch('data/a8k2p.json')
     }
 
   });
+
+  /* タップ開始 */
+
+  document
+  .getElementById("intro")
+  .addEventListener("click", () => {
+
+    document
+    .getElementById("intro")
+    .classList.add("hide");
+
+    document
+    .getElementById("bgm")
+    .play();
+
+  });
+
+});
 
   /* タップ開始 */
 
